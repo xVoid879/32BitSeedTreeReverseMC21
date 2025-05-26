@@ -82,7 +82,7 @@ public class TreeReverse {
             //the coords of the most negative corner of our chunk
             long popseed = random.setPopulationSeed(seed,64,-96);
 
-            popseed += (9*10000)+20;
+            popseed += (9*10000)+25;
             random.setSeed(popseed);
 
             List<Integer> copyTreePositions = new ArrayList<>(defaultList);
