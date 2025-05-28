@@ -50,13 +50,13 @@ public class TreeReverse {
         //leave layout: https://cdn.discordapp.com/attachments/766084065795244092/953750827544223794/unknown.png
         //wool is orientated like the f3 crosshair
         int[][] trees = {
-                {3,2,  1, 0,-1,0,1,    1,-1,1,0,    0,-1,1,0},
-                {0,5,  2, 1,-1,1,0,    0,-1,-1,-1,  0,-1,-1,-1},
-                {4,8,  1, 0,-1,0,-1,   0,-1,1,-1,   -1,-1,1,1},
-                {12,4, 2, 1,1,0,-1,    0,-1,0,-1,   1,-1,1,-1},
-                {10,7, 0, 1,-1,-1,-1,  0,0,1,-1,    1,1,0,-1},
-                {9,13, 1, 0,-1,1,-1,   0,-1,0,-1,   0,-1,1,-1}
+            {7, 1, 5, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+            {6, 6, 6, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+            {11, 8, 5, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+            {14, 10, 6, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+            {5, 13, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
         };
+
 
         List<Integer> defaultList = new ArrayList<>();
         for (int treeNum = 0; treeNum < trees.length; treeNum++) {
@@ -111,7 +111,7 @@ public class TreeReverse {
                             leaveXoroRandom.copySeedTo(xoroRandom);
                             z = random.nextInt(16);
                             copyTreePositions.remove((Integer) treeNum);
-                            if (copyTreePositions.size() < 2) {
+                            if (copyTreePositions.size() < 5) {
                                 System.out.println("seed: "+intSeed);
                                 continue seedloop;
                             }
