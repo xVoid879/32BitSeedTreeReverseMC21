@@ -103,7 +103,7 @@ public class TreeReverse {
                             leaveXoroRandom.copySeedTo(xoroRandom);
                             z = random.nextInt(16);
                             copyTreePositions.remove((Integer) treeNum);
-                            if (copyTreePositions.size() < 5) {
+                            if (copyTreePositions.size() < 8) {
                                 System.out.println("seed: "+intSeed);
                                 continue seedloop;
                             }
