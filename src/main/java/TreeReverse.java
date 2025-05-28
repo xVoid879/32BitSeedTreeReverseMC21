@@ -4,15 +4,6 @@ import java.util.List;
 public class TreeReverse {
 
     public static void main(String[] args) {
-        //step 9 index 20
-        //10 tries, 10% -> 11 -> 1x nextint
-        //loop:
-        //  choose: BIRCH_BEES_0002_0.2F ; FANCY_OAK_BEES_0002_0.1F ; OAK_BEES_0002 -> 1-2x nextFloat
-        //  some additional random calls
-        //  get blockpos 2x nextint16
-        //  generate: trunkheight(4-6) 1x nextint(3)
-        //            leave 16x nextint(2)
-        //  beehive decorator (it should fail with 1x nextfloat)
         List<Thread> list = new ArrayList<>();
         int part = Integer.MAX_VALUE/4;
         for (long i = -4; i < 4; i++) {
@@ -46,15 +37,16 @@ public class TreeReverse {
 
     public static void submittable(int start, int end) {
         long time = System.currentTimeMillis();
-        //layout: chunkX, chunkZ, trunkHeight, leaves(1: leave, 0: air, -1: unknown)
-        //leave layout: https://cdn.discordapp.com/attachments/766084065795244092/953750827544223794/unknown.png
-        //wool is orientated like the f3 crosshair
+        
         int[][] trees = {
-            {7, 1, 5, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-            {6, 6, 6, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-            {11, 8, 5, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-            {14, 10, 6, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-            {5, 13, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+            {3, 1, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+            {7, 1, 6, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+            {12, 2, 6, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+            {5, 7, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+            {1, 15, 5, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+            {5, 14, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+            {9, 12, 4, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+            {12, 14, 6, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
         };
 
 
@@ -79,8 +71,8 @@ public class TreeReverse {
                 }
             }
 
-            //the coords of the most negative corner of our chunk
-            long popseed = random.setPopulationSeed(seed,64,-96);
+            
+            long popseed = random.setPopulationSeed(seed,384,-64);
 
             popseed += (9*10000)+25;
             random.setSeed(popseed);
@@ -89,7 +81,7 @@ public class TreeReverse {
 
             int x = random.nextInt(16);
 
-            //placement attempts, loose bound
+            
             for (int i = 0; i < 100; i++) {
                 int z = random.nextInt(16);
 
@@ -100,7 +92,7 @@ public class TreeReverse {
                         xoroRandom.copySeedTo(leaveXoroRandom);
                         leaveXoroRandom.skip(2);
                         if (leaveRandom.nextInt(3) == tree[2]) {
-                            //1 burned call for second height & 4 for the upper leaves that never spawn
+                            
                             leaveXoroRandom.skip(5);
                             for (int leave = 3; leave < 15; leave++) {
                                 int leaveData = tree[leave];
